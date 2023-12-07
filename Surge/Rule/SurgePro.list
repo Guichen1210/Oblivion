@@ -1,1 +1,4 @@
-
+# NAME: Direct-Rule
+DOMAIN,ls.apple.com
+DOMAIN,store.apple.com
+DOMAIN-SUFFIX,digicert.cn
