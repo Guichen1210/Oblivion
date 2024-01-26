@@ -48,49 +48,30 @@ proxy-providers:
 
 # 规则订阅
 rule-providers:
-  # anti-AD 广告拦截规则
-  # https://github.com/privacy-protection-tools/anti-AD
-  # 如果误杀率高请自行更换
   anti-AD:
     type: http
     behavior: domain
     format: yaml
-    # path可为空(仅限clash.meta 1.15.0以上版本)
     path: ./rule_provider/anti-AD.yaml
     url: "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml?"
     interval: 600
-  # anti-AD 白名单规则
   anti-AD-white:
     type: http
     behavior: domain
     format: yaml
-    # path可为空(仅限clash.meta 1.15.0以上版本)
     path: ./rule_provider/anti-AD-white.yaml
     url: "https://raw.githubusercontent.com/privacy-protection-tools/dead-horse/master/anti-ad-white-for-clash.yaml?"
     interval: 600
 
 mode: rule
-# ipv6 支持
 ipv6: false
 log-level: info
-# 允许局域网连接
 allow-lan: true
-# socks5/http 端口
 mixed-port: 7890
-# Meta 内核特性 https://wiki.metacubex.one/config/general
-# 统一延迟
-# 更换延迟计算方式,去除握手等额外延迟
 unified-delay: true
-# TCP 并发
-# 同时对所有ip进行连接，返回延迟最低的地址
 tcp-concurrent: true
-# 外部控制端口
 external-controller: :9090
 geodata-mode: true
-# Geo 数据库下载地址
-# 使用 FastGit 代理 (https://fgit.cf)
-# 源地址 https://github.com/MetaCubeX/meta-rules-dat
-# 可以更换镜像站但不要更换其他数据库，可能导致无法启动
 geox-url:
   geoip: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
   geosite: "https://hub.gitmirror.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
@@ -178,14 +159,11 @@ proxy-groups:
   - { name: dns, <<: *pr }
   - { name: 广告拦截, type: select, proxies: [REJECT, DIRECT, 节点选择] }
   - { name: OpenAI, <<: *pr }
-  - { name: Apple, <<: *pr }
-  - { name: Google, <<: *pr }
   - { name: Telegram, <<: *pr }
-  - {name: 哔哩哔哩, <<: *pr}
+  - {name:  哔哩哔哩, <<: *pr}
   - { name: 巴哈姆特, <<: *pr }
   - { name: YouTube, <<: *pr }
   - { name: NETFLIX, <<: *pr }
-  - { name: Spotify, <<: *pr }
   - {
       name: 国内,
       type: select,
@@ -231,15 +209,15 @@ rules:
   - GEOSITE,apple,Apple
   - GEOSITE,apple-cn,Apple
   - GEOSITE,youtube,YouTube
-  - GEOSITE,google,Google
-  - GEOSITE,google-cn,Google # Google CN 不走代理会导致香港等地区节点 Play Store 异常
+  - GEOSITE,google,全部节点
+  - GEOSITE,google-cn,全部节点 # Google CN 不走代理会导致香港等地区节点 Play Store 异常
   - GEOSITE,telegram,Telegram
   - GEOSITE,netflix,NETFLIX
   - GEOSITE,bahamut,巴哈姆特
   - GEOSITE,spotify,Spotify
   - GEOSITE,geolocation-!cn,其他
 # - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOIP,CN))),REJECT # quic
-  - GEOIP,google,Google
+  - GEOIP,google,全部节点
   - GEOIP,netflix,NETFLIX
   - GEOIP,telegram,Telegram
   - GEOSITE,CN,国内
