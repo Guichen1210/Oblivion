@@ -225,9 +225,6 @@ proxy-groups:
   - { name: 全部节点, <<: *use }
 
 rules:
-  # 若需禁用 QUIC 请取消注释 QUIC 两条规则
-  # 防止 YouTube 等使用 QUIC 导致速度不佳, 禁用 443 端口 UDP 流量（不包括国内）
-
 # - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # quic
   - AND,((RULE-SET,anti-AD),(NOT,((RULE-SET,anti-AD-white)))),广告拦截 # 感谢 Telegram @nextyahooquery 提供的建议
   - GEOSITE,bilibili,哔哩哔哩
@@ -248,7 +245,6 @@ rules:
   
   - GEOSITE,apple,Apple
   - GEOSITE,apple-cn,Apple
-  - GEOSITE,twitter,Twitter
   - GEOSITE,youtube,YouTube
   - GEOSITE,google,Google
   - GEOSITE,google-cn,Google # Google CN 不走代理会导致香港等地区节点 Play Store 异常
@@ -261,7 +257,6 @@ rules:
   - GEOIP,google,Google
   - GEOIP,netflix,NETFLIX
   - GEOIP,telegram,Telegram
-  - GEOIP,twitter,Twitter
   - GEOSITE,pixiv,Pixiv
   - GEOSITE,CN,国内
   - GEOIP,CN,国内
