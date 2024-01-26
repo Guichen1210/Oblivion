@@ -212,7 +212,6 @@ rules:
   - GEOSITE,telegram,Telegram
   - GEOSITE,netflix,NETFLIX
   - GEOSITE,bahamut,巴哈姆特
-  - GEOSITE,spotify,Spotify
   - GEOSITE,geolocation-!cn,其他
 # - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOIP,CN))),REJECT # quic
   - GEOIP,google,全部节点
