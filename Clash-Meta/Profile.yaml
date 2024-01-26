@@ -257,7 +257,6 @@ rules:
   - GEOIP,google,Google
   - GEOIP,netflix,NETFLIX
   - GEOIP,telegram,Telegram
-  - GEOSITE,pixiv,Pixiv
   - GEOSITE,CN,国内
   - GEOIP,CN,国内
   - MATCH,其他
