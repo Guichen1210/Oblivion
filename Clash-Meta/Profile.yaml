@@ -312,7 +312,6 @@ rules:
   
   - GEOSITE,apple,Apple
   - GEOSITE,apple-cn,Apple
-  - GEOSITE,ehentai,ehentai
   - GEOSITE,github,Github
   - GEOSITE,twitter,Twitter
   - GEOSITE,youtube,YouTube
