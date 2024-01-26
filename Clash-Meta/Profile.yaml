@@ -236,17 +236,10 @@ proxy-groups:
 
   - { name: 广告拦截, type: select, proxies: [REJECT, DIRECT, 节点选择] }
   - { name: OpenAI, <<: *pr }
-  # Apple 推荐走全局直连
   - { name: Apple, <<: *pr }
   - { name: Google, <<: *pr }
   - { name: Telegram, <<: *pr }
-  #- { name: Twitter, <<: *pr }
-  #- { name: Pixiv, <<: *pr }
-  #- { name: ehentai, <<: *pr }
-  # 下面两个看需求启用，打开之后会代理全站流量，可能导致部分版权视频反而无法播放或视频播放速度缓慢
-  # 下面 rules 两条也要启用
-# - {name: 哔哩哔哩, <<: *pr}
-# - {name: 哔哩东南亚, <<: *pr}
+  - {name: 哔哩哔哩, <<: *pr}
   - { name: 巴哈姆特, <<: *pr }
   - { name: YouTube, <<: *pr }
   - { name: NETFLIX, <<: *pr }
@@ -265,7 +258,6 @@ proxy-groups:
           新加坡,
           美国,
           全部节点,
-          自动选择,
         ],
     }
   # 其他就是所有规则没匹配到的
@@ -285,7 +277,6 @@ proxy-groups:
   #    filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates)).*",
   #  }
   - { name: 全部节点, <<: *use }
-  - { name: 自动选择, <<: *use, tolerance: 2, type: url-test }
 
 rules:
   # 若需禁用 QUIC 请取消注释 QUIC 两条规则
@@ -293,8 +284,7 @@ rules:
 
 # - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT # quic
   - AND,((RULE-SET,anti-AD),(NOT,((RULE-SET,anti-AD-white)))),广告拦截 # 感谢 Telegram @nextyahooquery 提供的建议
-# - GEOSITE,biliintl,哔哩东南亚
-# - GEOSITE,bilibili,哔哩哔哩
+  - GEOSITE,bilibili,哔哩哔哩
 
   # OpenAI (ChatGPT)
   - DOMAIN-SUFFIX,chatgpt.com,OpenAI
