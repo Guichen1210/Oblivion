@@ -121,7 +121,7 @@ find-process-mode: strict
 keep-alive-interval: 1800
 
 # 全局客户端指纹
-global-client-fingerprint: random # 随机指纹
+global-client-fingerprint: chrome # 随机指纹
 
 # 缓存
 profile:
