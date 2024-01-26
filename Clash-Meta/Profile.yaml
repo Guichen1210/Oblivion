@@ -235,7 +235,7 @@ proxy-groups:
   # - { name: WARP前置, <<: *pr, exclude-type: "wireguard" }
 
   - { name: 广告拦截, type: select, proxies: [REJECT, DIRECT, 节点选择] }
-  # - { name: OpenAI, <<: *pr }
+  - { name: OpenAI, <<: *pr }
   # Apple 推荐走全局直连
   - { name: Apple, <<: *pr }
   - { name: Google, <<: *pr }
@@ -251,7 +251,7 @@ proxy-groups:
   - { name: YouTube, <<: *pr }
   - { name: NETFLIX, <<: *pr }
   - { name: Spotify, <<: *pr }
-# - { name: Github, <<: *pr }
+  - { name: Github, <<: *pr }
   - {
       name: 国内,
       type: select,
