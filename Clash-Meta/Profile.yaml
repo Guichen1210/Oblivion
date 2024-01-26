@@ -157,16 +157,11 @@ dns:
     - '+.lan'
     - '+.local'
   default-nameserver:
-    - 223.5.5.5
-    - 119.29.29.29
+    - system
     - 114.114.114.114
-    - '[2402:4e00::]'
-    - '[2400:3200::1]'
   nameserver:
     - 'tls://8.8.4.4#dns'
     - 'tls://1.0.0.1#dns'
-    - 'tls://[2001:4860:4860::8844]#dns'
-    - 'tls://[2606:4700:4700::1001]#dns'
   proxy-server-nameserver:
     - https://doh.pub/dns-query
   nameserver-policy:
