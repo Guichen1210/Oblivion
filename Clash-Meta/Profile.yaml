@@ -29,7 +29,6 @@ use: &use
   use:
     - 可乐云
     - 自由之路
-    - OneDay
 proxy-providers:
   可乐云:
     <<: *p
