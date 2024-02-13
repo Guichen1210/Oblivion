@@ -41,11 +41,6 @@ proxy-providers:
     path: ./proxy_provider/自由之路.yaml
     url: "https://cute.tn/api/v1/client/subscribe?token=3319bc9d29fc8c7d5e4d062bb95449cc"
 
-  OneDay:
-    <<: *p
-    path: ./proxy_provider/OneDay.yaml
-    url: "https://oneday.network/api/v1/client/subscribe?token=d29980b0fa36f465c69a668b1ce0a956"
-
 # 规则订阅
 rule-providers:
   anti-AD:
